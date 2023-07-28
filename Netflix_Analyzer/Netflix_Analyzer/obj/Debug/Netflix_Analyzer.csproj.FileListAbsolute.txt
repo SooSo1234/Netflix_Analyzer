@@ -1,0 +1,13 @@
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\bin\Debug\Netflix_Analyzer.exe.config
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\bin\Debug\Netflix_Analyzer.exe
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\bin\Debug\Netflix_Analyzer.pdb
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\obj\Debug\Netflix_Analyzer.csproj.AssemblyReference.cache
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\obj\Debug\Netflix_Analyzer.csproj.SuggestedBindingRedirects.cache
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\obj\Debug\Netflix_Analyzer.Data_Edit.resources
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\obj\Debug\Netflix_Analyzer.Form1.resources
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\obj\Debug\Netflix_Analyzer.Properties.Resources.resources
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\obj\Debug\Netflix_Analyzer.csproj.GenerateResource.cache
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\obj\Debug\Netflix_Analyzer.csproj.CoreCompileInputs.cache
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\obj\Debug\Netflix_Analyzer.exe
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\obj\Debug\Netflix_Analyzer.pdb
+D:\GitHub\netflix-data-analysis\Netflix_Analyzer\Netflix_Analyzer\obj\Debug\Netflix_Analyzer.Analyzer.resources
