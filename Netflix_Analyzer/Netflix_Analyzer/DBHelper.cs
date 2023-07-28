@@ -20,12 +20,17 @@ namespace Netflix_Analyzer
         public static DataTable dt;
         public static SqlDataAdapter adapter;
 
+        private static string ID="아이디";
+        private static string PW="비밀번호";
+        private static string IP="주소";
+
+
         public static void ConnectDB()
         {//접속해주는 함수
             try
             {
                 //conn.ConnectionString = $"Data Source=192.168.0.111,1433; Initial Catalog = MYDB; Persist Security Info = True; User ID=user1; Password=1234";
-                string connect = string.Format("Data Source={0}; Initial Catalog = {1}; Persist Security Info = True; User ID=user1;Password=1234", "192.168.0.104,1433", "Csharp_Team");
+                string connect = string.Format("Data Source={0}; Initial Catalog = {1}; Persist Security Info = True; User ID=" + ID + ";Password=" + PW + ", " + IP + ", Csharp_Team");
                 conn = new SqlConnection(connect);
                 conn.Open();
             }
@@ -67,7 +72,7 @@ namespace Netflix_Analyzer
             try
             {
                 dt = new DataTable();
-                string connect = string.Format("Data Source={0}; Initial Catalog = {1}; Persist Security Info = True; User ID=user1;Password=1234", "192.168.0.104,1433", "Csharp_Team");
+                string connect = string.Format("Data Source={0}; Initial Catalog = {1}; Persist Security Info = True; User ID=" + ID + ";Password=" + PW + ", " + IP + ", Csharp_Team");
                 conn = new SqlConnection(connect);
                 conn.Open();
                 if (id == -1)
@@ -99,7 +104,7 @@ namespace Netflix_Analyzer
             try
             {
                 dt = new DataTable();
-                string connect = string.Format("Data Source={0}; Initial Catalog = {1}; Persist Security Info = True; User ID=user1;Password=1234", "192.168.0.104,1433", "Csharp_Team");
+                string connect = string.Format("Data Source={0}; Initial Catalog = {1}; Persist Security Info = True; User ID=" + ID + ";Password=" + PW + ", " + IP + ", Csharp_Team");
                 conn = new SqlConnection(connect);
                 conn.Open();
 
@@ -344,96 +349,6 @@ namespace Netflix_Analyzer
             }
         }
 
-        //---------------------------- 이하 작업중 ----------------------------------------------
-        public static void updateQuery(string parkingSpot, string carNumber, string driverName, string phoneNumber, bool isRemove)
-        {
-            try
-            {
-                ConnectDB();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandType = CommandType.Text;
-                string sqlcommand = "";
-                if (isRemove) //출차
-                {
-                    //sql injection 방지 코드 작성해보기
-                    sqlcommand =
-                    "update parkingManager set carNumber=''," +
-                    "driverName='',phoneNumber=''," +
-                    "parkingTime=null where " +
-                    "parkingSpot=@p1";
-                    cmd.Parameters.AddWithValue("@p1",
-                        parkingSpot);
-                }
-                else //주차
-                {//sql injection 방지 코드 작성해보기
-                    sqlcommand =
-                    "update parkingManager set carNumber=@p1," +
-                    "DriverName=@p2,phoneNumber=@p3," +
-                    "parkingTime=@p4 where " +
-                    "parkingSpot=@p5";
-                    cmd.Parameters.AddWithValue("@p1",
-                        carNumber);
-                    cmd.Parameters.AddWithValue("@p2",
-                        driverName);
-                    cmd.Parameters.AddWithValue("@p3",
-                        phoneNumber);
-                    cmd.Parameters.AddWithValue("@p4",
-                        DateTime.Now.ToString
-                        ("yyyy-MM-dd HH:mm:ss.fff"));
-                    cmd.Parameters.AddWithValue("@p5",
-                        parkingSpot);
-                }
-                cmd.CommandText = sqlcommand;
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("update" + ex.Message);
-                DataManager.printLog("update," + ex.Message + "," + ex.StackTrace);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-        private static void executeQuery(string ps,
-            string command)
-        {
-            string sqlcommand = "";
-            if (command.Equals("insert"))
-                sqlcommand = "insert into parkingManager(parkingSpot) values (@p1)";
-            else
-                sqlcommand = "delete from parkingManager where parkingSpot = @p1";
-
-            try
-            {
-                ConnectDB();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@p1", ps);
-                cmd.CommandText = sqlcommand;
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(command);
-                DataManager.printLog(command + "," + ex.Message + "," + ex.StackTrace);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-        public static void deleteQuery(string ps)
-        {
-            executeQuery(ps, "delete");
-        }
-        public static void insertQuery(string ps)
-        {
-            executeQuery(ps, "insert");
-        }
 
     }
 }
